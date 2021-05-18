@@ -37,5 +37,33 @@ public class Animation_Controller : MonoBehaviour
         }else{
             _anim.SetBool("Is_Walking_Right", false);
         }
+
+        //seperation between point-to-click and wasd.
+
+        if(Input.GetKey(KeyCode.W)){ 
+            _anim.SetBool("Is_Walking_Up", true);
+        }else{
+            _anim.SetBool("Is_Walking_Up", false);
+        }
+
+        if(Input.GetKey(KeyCode.S)){
+            _anim.SetBool("Is_Walking_Down", true);
+        }else{
+            _anim.SetBool("Is_Walking_Down", false);
+        }
+
+        if(Input.GetKey(KeyCode.A)){
+            _anim.SetBool("Is_Walking_Left", true);
+        }else{
+            _anim.SetBool("Is_Walking_Left", false);
+        }
+
+        if(Input.GetKey(KeyCode.D)){
+            _anim.SetBool("Is_Walking_Right", true);
+        }else{
+            _anim.SetBool("Is_Walking_Right", false);
+        }
     }
+
+    //seperation between point-to-click and wasd.
 }
