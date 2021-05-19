@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 2133666951}
   - component: {fileID: 2133666950}
   - component: {fileID: 2133666952}
+  - component: {fileID: 2133666953}
   m_Layer: 0
   m_Name: Elf
   m_TagString: Untagged
@@ -265,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 2133666948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.2778058, y: 0.9141258, z: 376.99197}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867638520}
   m_RootOrder: 0
@@ -352,4 +353,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb7b2c926f346641b485caac4ffc764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 4
+--- !u!114 &2133666953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133666948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1448e7bea48bd8f4f9e7afdf744da204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
