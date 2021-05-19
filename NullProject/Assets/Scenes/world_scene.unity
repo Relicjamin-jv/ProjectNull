@@ -243,12 +243,12 @@ MonoBehaviour:
   tilePrefab: {fileID: 3963506949543347910, guid: 80b6ea4b65259c945a394348626839f8, type: 3}
   width: 100
   height: 100
-  scale: 1
+  scale: 5
   offset: {x: 0, y: 0}
   heightWaves:
-  - seed: 159.94
-    frequency: 0.09
-    amplitude: 0.8
+  - seed: 67
+    frequency: 0.5
+    amplitude: 0.6
 --- !u!4 &1368144208
 Transform:
   m_ObjectHideFlags: 0
