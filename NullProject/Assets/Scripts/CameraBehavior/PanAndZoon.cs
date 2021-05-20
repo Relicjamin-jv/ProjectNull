@@ -5,8 +5,14 @@ using Cinemachine;
 
 public class PanAndZoon : MonoBehaviour
 {
-    [Header("PanSpeed")]
+    private bool _isFocusing; //whether the focusing is still happening or not
+    [Header("Pan Speed")]
     public float panSpeed = 5f; //the speed at which it pans
+    public float panSpeedFocus = 100f;
+    [Header("Zoom Options")]
+    public float zoomSpeed = 4f;
+    public float zoomMax = 40f;
+    public float zoomMin = 5f;
 
     private CinemachineVirtualCamera virtualCamera;
     private Transform camTrans;
@@ -19,10 +25,19 @@ public class PanAndZoon : MonoBehaviour
 
     private void Update() {
         Vector2 mouse = Input.mousePosition; //gets the mouse position
+        float mouseScrollWheel = Input.mouseScrollDelta.y; //returns 0 if the scroll wheel is not being used, forward -1 back 1;
         float x = mouse.x;
         float y = mouse.y;
         if(x != 0 || y != 0){
             pan(x, y);
+        }
+        float z = mouseScrollWheel; 
+        if(z != 0){
+            zoomScreen(z);
+        }
+
+        if(Input.GetKey(KeyCode.F)){
+            focusOnPlayer();
         }
 
         //*******IGNORE******** used for the input package system in unity, I'm making the decision for at least now to not use it 
@@ -33,6 +48,26 @@ public class PanAndZoon : MonoBehaviour
         // {
         //     pan(x, y);
         // }
+    }
+
+    public void focusOnPlayer(){
+        _isFocusing = true; 
+        Vector3 player = GameObject.Find("Characters/Elf").transform.position; //finds the position of the player and where they are
+        float fov = virtualCamera.m_Lens.OrthographicSize; //gets the feild of view var from the member variable from the virtual camera
+        Vector3 _targetPostion = player;
+        _targetPostion.z = camTrans.position.z; //keep the z the same for the camera
+        while(camTrans.position != _targetPostion){
+            camTrans.position = Vector3.MoveTowards(this.transform.position, _targetPostion, panSpeedFocus * Time.deltaTime); //moves towards the player object
+        }
+        virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(fov, 5f, zoomSpeed * Time.deltaTime); //moves the feild of view towards the min. scroll value
+
+    }
+
+    
+    public void zoomScreen(float param){
+        float fov = virtualCamera.m_Lens.OrthographicSize; //gets the feild of view var from the member variable from the virtual camera
+        float target = Mathf.Clamp(fov + param, zoomMin, zoomMax); //clamps the value between these two values so the param doesn't go below or higher
+        virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(fov, target, zoomSpeed * Time.deltaTime); //moves the feild of view towards the user scoll value
     }
 
     public Vector2 PanDirection(float x, float y){
