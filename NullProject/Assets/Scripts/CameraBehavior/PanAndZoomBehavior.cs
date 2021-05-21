@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class PanAndZoon : MonoBehaviour
+public class PanAndZoomBehavior : MonoBehaviour
 {
     private bool _isFocusing; //whether the focusing is still happening or not
     [Header("Pan Speed")]
@@ -33,10 +33,15 @@ public class PanAndZoon : MonoBehaviour
         }
         float z = mouseScrollWheel; 
         if(z != 0){
+            _isFocusing = false;
             zoomScreen(z);
         }
 
         if(Input.GetKey(KeyCode.F)){
+            _isFocusing = true;
+        }
+
+        if(_isFocusing){
             focusOnPlayer();
         }
 
@@ -51,7 +56,6 @@ public class PanAndZoon : MonoBehaviour
     }
 
     public void focusOnPlayer(){
-        _isFocusing = true; 
         Vector3 player = GameObject.Find("Characters/Elf").transform.position; //finds the position of the player and where they are
         float fov = virtualCamera.m_Lens.OrthographicSize; //gets the feild of view var from the member variable from the virtual camera
         Vector3 _targetPostion = player;
@@ -74,15 +78,19 @@ public class PanAndZoon : MonoBehaviour
         Vector2 direction = Vector2.zero;
 
         if(y >= Screen.height * .95f){
+            _isFocusing = false;
             direction.y += 1; //move in that direction
         }
         else if(y <= Screen.height * .05f){
+            _isFocusing = false;
             direction.y -= 1; //move in that direction
         }
         if(x >= Screen.width * .95f){
+            _isFocusing = false;
             direction.x += 1; //move in that direction
         }
         else if(x <= Screen.width * .05f){
+            _isFocusing = false;
             direction.x -= 1; //move in that direction
         }
         return direction; //returns the direction of the way the user wants to pan
