@@ -529,7 +529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 765271305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324663900}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Options_Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765271305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,6 +966,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308871204}
   m_CullTransparentMesh: 1
+--- !u!114 &1324663900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8393265804786582256, guid: cf284559e626ffd41ade1d7a79ef9b0e, type: 3}
+  m_PrefabInstance: {fileID: 7986497037901215834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d7ad2739e960847a9dc2b0f38ee713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1410896992
 GameObject:
   m_ObjectHideFlags: 0
