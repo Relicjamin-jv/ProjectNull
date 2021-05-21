@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96467bdc54565c5498c5aa18763f1f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyBindings: {fileID: 11400000, guid: 5cb5d2cbdfc20de49b0b1b56e19a5915, type: 2}
   controlName: {fileID: 1032482147}
   outPutFeild: {fileID: 1974889130}
 --- !u!1 &966576582
