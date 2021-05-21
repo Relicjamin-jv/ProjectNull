@@ -70,7 +70,7 @@ public class PanAndZoomBehavior : MonoBehaviour
     
     public void zoomScreen(float param){
         float fov = virtualCamera.m_Lens.OrthographicSize; //gets the feild of view var from the member variable from the virtual camera
-        float target = Mathf.Clamp(fov + param, zoomMin, zoomMax); //clamps the value between these two values so the param doesn't go below or higher
+        float target = Mathf.Clamp(fov + (-param), zoomMin, zoomMax); //clamps the value between these two values so the param doesn't go below or higher
         virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(fov, target, zoomSpeed * Time.deltaTime); //moves the feild of view towards the user scoll value
     }
 
