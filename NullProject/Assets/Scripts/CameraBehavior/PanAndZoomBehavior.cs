@@ -37,7 +37,7 @@ public class PanAndZoomBehavior : MonoBehaviour
             zoomScreen(z);
         }
 
-        if(InputManager.instance.KeyDown("focus")){
+        if(InputManager.instance.KeyDown("Focus")){
             _isFocusing = true;
         }
 
