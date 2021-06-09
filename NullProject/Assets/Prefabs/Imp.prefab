@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7757046151946160744}
   - component: {fileID: 7757046151946160747}
   - component: {fileID: 7757046151946160746}
+  - component: {fileID: 715433025949547825}
+  - component: {fileID: -513597229666285693}
   m_Layer: 0
   m_Name: Imp
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7757046151946160756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.27, y: 0.27, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7e9f3d4bb584f414da7be0ab2072a2c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -115,3 +117,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1448e7bea48bd8f4f9e7afdf744da204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &715433025949547825
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757046151946160756}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-513597229666285693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757046151946160756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba40bee689a0c349b19c18c29474b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointObj: {fileID: 8127372032594300259, guid: 8334de262fc76b34a952271d42b676d8, type: 3}

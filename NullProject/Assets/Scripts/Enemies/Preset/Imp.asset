@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 151b437fd472eb9438f4d47ee37b59fe, type: 3}
-  m_Name: Enemy Preset
+  m_Name: Imp
   m_EditorClassIdentifier: 
   enemyName: Imp
   health: 100
-  maxHeightRange: 0.6
+  minHeightRange: 0.25
+  maxHeightRange: 0.5
   countToGenerate: 5
-  prefab: {fileID: 0}
+  chanceToGen: 0.0001
+  prefab: {fileID: 7757046151946160756, guid: d521ea53db217314ab269f6d81b68e66, type: 3}

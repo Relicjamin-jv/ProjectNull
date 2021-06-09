@@ -7,8 +7,10 @@ public class enemyScriptable : ScriptableObject
 {
     public string enemyName;
     public int health;
+    public float minHeightRange;
     public float maxHeightRange;
     public int countToGenerate;
+    public float chanceToGen;
     public GameObject prefab;
 
 }

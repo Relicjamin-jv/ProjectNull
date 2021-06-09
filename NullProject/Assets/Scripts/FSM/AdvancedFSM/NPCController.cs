@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCController : AdvancedFSM
-{
+{   
+
+    public GameObject waypointObj;
+
     protected override void Initialize()
     {
         GameObject objPlayer = GameObject.FindGameObjectWithTag("Player"); //finding the player object
@@ -23,8 +26,8 @@ public class NPCController : AdvancedFSM
 
     protected override void FSMFixedUpdate()
     {
-        CurrentState.Reason(playerTransform, transform); //sends in the postion of the player and the npc
-        CurrentState.Act(playerTransform, transform); //sends in the postion of the player and the npc
+        CurrentState.Reason(playerTransform, this.transform); //sends in the postion of the player and the npc
+        CurrentState.Act(playerTransform, this.transform); //sends in the postion of the player and the npc
     }
 
     public void SetTransition(Transition t){
@@ -33,23 +36,25 @@ public class NPCController : AdvancedFSM
 
     private void ConstructFSM(){
         //Get all the wonder points
-        patrollList = GameObject.FindGameObjectsWithTag("Waypoint"); //get all the waypoints with the "Waypoint" tag associated with them
-        Transform[] waypoints = new Transform[patrollList.Length]; //sets an array to be the size of the partroll list
-
-        int i = 0;
-        foreach(GameObject obj in patrollList){
-            waypoints[i] = obj.transform;
-            i++;
+        Transform[] waypoints = new Transform[5]; //sets an array to be the size of the partroll list
+        for(int k = 0; k < waypoints.Length; k++){
+            GameObject waypoint = Instantiate(waypointObj, new Vector3(this.transform.position.x + Random.Range(-10f, 10f), this.transform.position.y + Random.Range(-10f, 10f), 0), Quaternion.identity); //Quaternoin.identity mean no roatation
+            waypoints[k] = waypoint.transform;
         }
+
+
         //npc will have a patrol state
         PatrolState patrol = new PatrolState(waypoints); 
         patrol.AddTransition(Transition.SawPlayer, FSMStateID.Chasing); //if saw player then transition into chasing the player
 
-        //npc will have a chase state
+        // npc will have a chase state
         ChaseState chase = new ChaseState();
         chase.AddTransition(Transition.LostPlayer, FSMStateID.Patrolling);
 
-        AddFSMState(patrol);
+    
         AddFSMState(chase);
+        AddFSMState(patrol);
+
+        SetTransition(Transition.LostPlayer);
     }
 }
