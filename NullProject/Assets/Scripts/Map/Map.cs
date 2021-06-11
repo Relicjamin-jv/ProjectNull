@@ -19,8 +19,8 @@ public class Map : MonoBehaviour
 
     // Array to store Map Dimensions
     [Header("Dimensions")]
-    public int width = 50;
-    public int height = 50;
+    public static int width = 200;
+    public static int height = 200;
     public float scale = 1.0f;
     public Vector2 offset;
 

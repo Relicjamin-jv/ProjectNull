@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Noise_Generation : MonoBehaviour
 {
-
+    public static float[,] noiseMap;
     //
     // Generates the Noise Map          Width       Height      Scale       Waves               Offeset
     public static float[,] Generate (int width, int height, float scale, Wave[] waves, Vector2 offset)
     {
-        float[,] noiseMap = new float[width, height];
+        noiseMap = new float[width, height];
         
         for(int x = 0; x < width; ++x)
         {
