@@ -30,8 +30,12 @@ public class PatrolState : FSMState
             FindNextPoint(); //finding the next point
         }
 
-        //Go forward 
-        npc.position = Vector2.MoveTowards(npc.position, destPos, speed * Time.deltaTime);
+        //Go forward
+        if(destPos != Vector3.zero){
+            npc.position = Vector2.MoveTowards(npc.position, destPos, speed * Time.deltaTime);
+        }else{
+            destPos = npc.position;
+        }
     }
 
 }
