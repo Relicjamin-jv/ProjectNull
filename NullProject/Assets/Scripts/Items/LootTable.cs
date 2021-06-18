@@ -18,7 +18,7 @@ public class LootTable : MonoBehaviour
     #endregion
 
     public itemScriptable lootRoll(){
-        int random = Random.Range(0, 10);
+        int random = Random.Range(0, 2);
         Debug.Log(random);
         return AllLoot[random];
     }

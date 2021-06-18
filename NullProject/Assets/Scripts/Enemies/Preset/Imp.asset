@@ -17,5 +17,5 @@ MonoBehaviour:
   minHeightRange: 0.25
   maxHeightRange: 0.5
   countToGenerate: 5
-  chanceToGen: 0.0001
+  chanceToGen: 0.001
   prefab: {fileID: 7757046151946160756, guid: d521ea53db217314ab269f6d81b68e66, type: 3}

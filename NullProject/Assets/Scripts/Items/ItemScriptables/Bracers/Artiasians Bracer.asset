@@ -10,8 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e097c5a85f07f2942a3069f95dd4f630, type: 3}
-  m_Name: Test
+  m_Name: Artiasians Bracer
   m_EditorClassIdentifier: 
-  itemName: Test
-  icon: {fileID: 21300000, guid: f1d2730d462a4314ba175fde3b316ad9, type: 3}
+  itemName: New Item
+  icon: {fileID: 0}
   isDefault: 0
+  Strength: 0
+  Intellect: 0
+  Agility: 0
+  Stamina: 0
+  ArmorValue: 0
+  AttackValue: 0
+  head: 0
+  chest: 0
+  melee: 0
+  ranged: 0
+  bracers: 0
+  foot: 0
+  sheild: 0
+  staff: 0
+  oneHanded: 0
+  twoHanded: 0
