@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e097c5a85f07f2942a3069f95dd4f630, type: 3}
   m_Name: Axe of the Maurader
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Axe of the Muarader
+  icon: {fileID: 21300000, guid: 40cc9a78a3402104e8c92a52f296d32b, type: 3}
   isDefault: 0
   Strength: 0
   Intellect: 0
-  Agility: 0
+  Agility: 4
   Stamina: 0
   ArmorValue: 0
-  AttackValue: 0
+  AttackValue: 4
   head: 0
   chest: 0
-  melee: 0
+  melee: 1
   ranged: 0
   bracers: 0
   foot: 0
@@ -31,3 +31,5 @@ MonoBehaviour:
   staff: 0
   oneHanded: 1
   twoHanded: 0
+  offHand: 0
+  teir: 2

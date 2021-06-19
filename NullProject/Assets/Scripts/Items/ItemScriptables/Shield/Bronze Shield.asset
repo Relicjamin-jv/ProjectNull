@@ -29,6 +29,7 @@ MonoBehaviour:
   foot: 0
   sheild: 1
   staff: 0
-  oneHanded: 0
+  oneHanded: 1
   twoHanded: 0
   offHand: 1
+  teir: 2

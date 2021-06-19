@@ -20,10 +20,10 @@ MonoBehaviour:
   Agility: 0
   Stamina: 2
   ArmorValue: 0
-  AttackValue: 0
+  AttackValue: 1
   head: 0
   chest: 0
-  melee: 0
+  melee: 1
   ranged: 0
   bracers: 0
   foot: 0
@@ -31,3 +31,5 @@ MonoBehaviour:
   staff: 0
   oneHanded: 0
   twoHanded: 0
+  offHand: 0
+  teir: 1

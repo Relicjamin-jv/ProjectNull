@@ -12,22 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e097c5a85f07f2942a3069f95dd4f630, type: 3}
   m_Name: Steel Bracer
   m_EditorClassIdentifier: 
-  itemName: New Item
-  icon: {fileID: 0}
+  itemName: Steel Bracer
+  icon: {fileID: 21300000, guid: 2b8f4747645f82949936070dd7ec5dbe, type: 3}
   isDefault: 0
-  Strength: 0
+  Strength: 2
   Intellect: 0
   Agility: 0
-  Stamina: 0
+  Stamina: 5
   ArmorValue: 0
   AttackValue: 0
   head: 0
   chest: 0
   melee: 0
   ranged: 0
-  bracers: 0
+  bracers: 1
   foot: 0
   sheild: 0
   staff: 0
   oneHanded: 0
   twoHanded: 0
+  offHand: 0
+  teir: 3

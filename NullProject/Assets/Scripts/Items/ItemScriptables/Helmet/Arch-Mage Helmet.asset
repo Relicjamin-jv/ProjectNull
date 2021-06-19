@@ -31,3 +31,5 @@ MonoBehaviour:
   staff: 0
   oneHanded: 0
   twoHanded: 0
+  offHand: 0
+  teir: 3

@@ -5,7 +5,6 @@ using UnityEngine;
 public class inventoryUI : MonoBehaviour
 {
     Inventory inventory;
-
     ItemSlot[] slots;
 
     private void Start() {
@@ -15,7 +14,7 @@ public class inventoryUI : MonoBehaviour
     }
 
     private void Update() {
-        
+    
     }
 
 

@@ -9,7 +9,9 @@ public class Inventory : MonoBehaviour
 
     public List<itemScriptable> items = new List<itemScriptable>(); //the array where the items will be stored
 
-    private int maxInvSpace = 8; 
+    public GameObject inventoryToggle;
+
+    private int countInv = 0; 
 
     #region Singleton
 
@@ -33,14 +35,21 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(InputManager.instance.KeyDown("Inventory")){
+            inventoryToggle.SetActive(!inventoryToggle.activeSelf);
+        }
     }
 
     /// <summary>
     /// add an item to the list
     /// </summary>
     public void Add (itemScriptable item){
-        items.Add(item);
+        if(countInv < 8){
+            items.Add(item);
+            countInv++;
+        }else{
+            Debug.Log("Inv space full");
+        }
         if(OnItemUpdateCallBack != null){
             OnItemUpdateCallBack.Invoke();
         }
@@ -50,7 +59,10 @@ public class Inventory : MonoBehaviour
     /// delete an item to the list
     /// </summary>
     public void Remove (itemScriptable item){
-        items.Remove(item);
+        if(countInv > 0){
+            items.Remove(item);
+            countInv--;
+        }
         if(OnItemUpdateCallBack != null){
             OnItemUpdateCallBack.Invoke();
         }

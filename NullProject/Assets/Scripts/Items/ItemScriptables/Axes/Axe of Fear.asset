@@ -13,21 +13,23 @@ MonoBehaviour:
   m_Name: Axe of Fear
   m_EditorClassIdentifier: 
   itemName: Axe of Fear
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 525eeaa50da2fc1478b643e27052db3c, type: 3}
   isDefault: 0
-  Strength: 0
+  Strength: 5
   Intellect: 0
   Agility: 0
-  Stamina: 0
+  Stamina: 2
   ArmorValue: 0
-  AttackValue: 0
+  AttackValue: 3
   head: 0
   chest: 0
-  melee: 0
+  melee: 1
   ranged: 0
   bracers: 0
   foot: 0
   sheild: 0
   staff: 0
   oneHanded: 0
-  twoHanded: 0
+  twoHanded: 1
+  offHand: 0
+  teir: 2

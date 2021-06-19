@@ -25,5 +25,5 @@ public class itemScriptable : ScriptableObject
     public bool oneHanded = false;
     public bool twoHanded = false;
     public bool offHand = false;
-
+    public int teir = 0; 
 }
