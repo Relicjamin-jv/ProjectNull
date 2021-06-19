@@ -56,7 +56,7 @@ public class PanAndZoomBehavior : MonoBehaviour
     }
 
     public void focusOnPlayer(){
-        Vector3 player = GameObject.Find("Player/Elf").transform.position; //finds the position of the player and where they are
+        Vector3 player = GameObject.FindGameObjectWithTag("Player").transform.position; //finds the position of the player and where they are
         float fov = virtualCamera.m_Lens.OrthographicSize; //gets the feild of view var from the member variable from the virtual camera
         Vector3 _targetPostion = player;
         _targetPostion.z = camTrans.position.z; //keep the z the same for the camera
