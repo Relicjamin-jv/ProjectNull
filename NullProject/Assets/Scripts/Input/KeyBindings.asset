@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Focus: 102
   Inventory: 98
+  CharacterScreen: 99

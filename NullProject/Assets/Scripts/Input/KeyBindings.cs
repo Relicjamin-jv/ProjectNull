@@ -7,6 +7,7 @@ public class KeyBindings : ScriptableObject
 {
     public KeyCode Focus; //add more here as needed
     public KeyCode Inventory;
+    public KeyCode CharacterScreen;
 
     public KeyCode checkKey(string key){
         switch(key){
@@ -14,6 +15,8 @@ public class KeyBindings : ScriptableObject
                 return Focus;
             case "Inventory":
                 return Inventory;
+            case "Character Screen":
+                return CharacterScreen;
             default:
                 return KeyCode.None;
         }
