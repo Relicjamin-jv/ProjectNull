@@ -13,6 +13,8 @@ public class NetworkManagerNull : NetworkManager
     [Header("Room")]
     [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
 
+    public static NetworkManagerNull instance;
+
 
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;

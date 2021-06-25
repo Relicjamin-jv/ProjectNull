@@ -9,7 +9,6 @@ public class JoinLobbyMenu : MonoBehaviour
     [SerializeField] private NetworkManagerNull network = null;
 
     [Header("UI")]
-    [SerializeField] private GameObject landingPagePanel;
     [SerializeField] private TMP_InputField ipAddressFeild;
     [SerializeField] private Button joinButton;
 
@@ -25,7 +24,7 @@ public class JoinLobbyMenu : MonoBehaviour
 
     public void JoinLobby(){
         string ipAddress = ipAddressFeild.text;
-
+        Debug.Log("Trying to connect ip: " + ipAddress);
         network.networkAddress = ipAddress;
         network.StartClient();
 
@@ -36,10 +35,10 @@ public class JoinLobbyMenu : MonoBehaviour
         joinButton.interactable = true;
 
         gameObject.SetActive(false);
-        landingPagePanel.SetActive(false);
     }
 
     private void HandleClientDisconnected(){
         joinButton.interactable = true;
     }
+
 }
