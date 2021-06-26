@@ -11,6 +11,7 @@ public class JoinLobbyMenu : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TMP_InputField ipAddressFeild;
     [SerializeField] private Button joinButton;
+    [SerializeField] private GameObject landingPage;
 
     private void OnEnable(){
         NetworkManagerNull.OnClientConnected += HandleClientConnected;
@@ -34,7 +35,7 @@ public class JoinLobbyMenu : MonoBehaviour
     private void HandleClientConnected(){
         joinButton.interactable = true;
 
-        gameObject.SetActive(false);
+        landingPage.SetActive(false);
     }
 
     private void HandleClientDisconnected(){

@@ -3673,6 +3673,7 @@ MonoBehaviour:
   network: {fileID: 59633257}
   ipAddressFeild: {fileID: 1084710134}
   joinButton: {fileID: 1837315280}
+  landingPage: {fileID: 257257170}
 --- !u!114 &2141626486
 MonoBehaviour:
   m_ObjectHideFlags: 0
