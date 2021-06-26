@@ -24,8 +24,8 @@ public class JoinLobbyMenu : MonoBehaviour
 
     public void JoinLobby(){
         string ipAddress = ipAddressFeild.text;
-        Debug.Log("Trying to connect ip: " + ipAddress);
         network.networkAddress = ipAddress;
+        Debug.Log("Trying to connect ip: " + network.networkAddress);
         network.StartClient();
 
         joinButton.interactable = false;

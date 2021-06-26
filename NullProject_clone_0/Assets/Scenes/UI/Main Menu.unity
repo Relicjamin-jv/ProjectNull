@@ -432,13 +432,13 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7922893400839120663, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
+  playerPrefab: {fileID: 7855443704985315081, guid: 03b6b18c6905e6d4d8723eb6ef313b94, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
   minPlayers: 2
   menuScene: Assets/Scenes/UI/Main Menu.unity
-  roomPlayerPrefab: {fileID: 521881956194522417, guid: d426f43cd10e59b478cd7949eda45f8c, type: 3}
+  roomPlayerPrefab: {fileID: 1267006446720208849, guid: 9a15ca9b1b097ce4e810cd6a4f874988, type: 3}
 --- !u!1 &247760178
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 257257172}
   - component: {fileID: 257257171}
   - component: {fileID: 257257175}
+  - component: {fileID: 257257177}
   m_Layer: 5
   m_Name: Main_Menu_UI
   m_TagString: Untagged
@@ -708,6 +709,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   network: {fileID: 59633257}
   landingPagePanel: {fileID: 257257170}
+--- !u!114 &257257177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257257170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &371581897
 GameObject:
   m_ObjectHideFlags: 0

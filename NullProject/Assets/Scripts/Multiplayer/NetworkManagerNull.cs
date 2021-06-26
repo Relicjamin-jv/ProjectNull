@@ -53,7 +53,7 @@ public class NetworkManagerNull : NetworkManager
             return;
         }
 
-        if (SceneManager.GetActiveScene().name != menuScene)
+        if (SceneManager.GetActiveScene().name != "Main Menu")
         {
             conn.Disconnect();
             return;
@@ -62,7 +62,7 @@ public class NetworkManagerNull : NetworkManager
 
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        if (SceneManager.GetActiveScene().name == menuScene)
+        if (SceneManager.GetActiveScene().name == "Main Menu")
         {
             NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab); //instatiate the player 
 
