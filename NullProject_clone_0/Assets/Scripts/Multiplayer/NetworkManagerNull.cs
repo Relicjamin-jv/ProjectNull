@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class NetworkManagerNull : NetworkManager
 {
     [SerializeField] private int minPlayers = 2;
-    [Scene] [SerializeField] private string menuScene = string.Empty;
+    [Scene] [SerializeField] private string menuScene;
 
     [Header("Room")]
     [SerializeField] private NetworkRoomPlayerLobby roomPlayerPrefab = null;
@@ -18,6 +18,8 @@ public class NetworkManagerNull : NetworkManager
 
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
+
+    public List<NetworkRoomPlayerLobby> roomPlayers { get; } = new List<NetworkRoomPlayerLobby>(); //room player data
 
     public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
 
@@ -64,9 +66,49 @@ public class NetworkManagerNull : NetworkManager
     {
         if (SceneManager.GetActiveScene().name == "Main Menu")
         {
-            NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab); //instatiate the player 
+            bool isLeader = roomPlayers.Count == 0; //if there is no one in the room server then the first one to join is considered the leader
+
+            NetworkRoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab); //instatiate the player
+
+            roomPlayerInstance.IsLeader = isLeader; 
 
             NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject); //set that gameobject that was made on the server to go ahead and set the connection up for that specific obj.
         }
     }
+
+    public override void OnServerDisconnect(NetworkConnection conn) //server removing from the list
+    {
+        if (conn.identity != null)
+        {
+            var player = conn.identity.GetComponent<NetworkRoomPlayerLobby>();
+            roomPlayers.Remove(player); //removes the player from the lobby
+            NoitfyPlayersofState(); //notifies the player whether the ready state has been made or not
+        }
+        base.OnServerDisconnect(conn);
+    }
+
+    public override void OnStopServer()
+    {
+        roomPlayers.Clear(); //clears the list so when a client or host goes again it doesnt keep the data from before hand
+    }
+
+    public void NoitfyPlayersofState(){
+        foreach(var player in roomPlayers){
+            player.HandleReadyToStart(IsReadyToStart());
+        }
+    }
+
+    public bool IsReadyToStart(){
+        if(numPlayers < minPlayers) {return false;} //cant start the game unless we have enough players in order to do so
+
+        foreach(var player in roomPlayers){ //all players need to be ready in order to start the game
+            if(!player.IsReady){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
 }
