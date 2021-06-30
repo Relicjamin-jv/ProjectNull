@@ -34,9 +34,9 @@ public class CharacterMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isLocalPlayer)
+        if (hasAuthority)
         {
-
+            Debug.Log("Has Auth");
             if (Input.GetMouseButton(0))
             {
                 SetTargetPosition();

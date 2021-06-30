@@ -63,7 +63,6 @@ public class NetworkRoomPlayerLobby : NetworkBehaviour
     public void HandleReadyStatusChange(bool oldValue, bool newValue) => UpdateDisplay();
 
     private void UpdateDisplay(){
-        Debug.Log("Updating UI");
         if(!isLocalPlayer){ //if not the local player doing the change then we need to find our object and update that object
             foreach(var player in Room.roomPlayers){
                 if(player.isLocalPlayer){
