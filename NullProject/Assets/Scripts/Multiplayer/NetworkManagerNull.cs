@@ -15,11 +15,13 @@ public class NetworkManagerNull : NetworkManager
 
     [Header("Game")]
     [SerializeField] private NetworkGame gamePlayerPrefab;
+    [SerializeField] private GameObject playerSpawnSystem;
 
     public static NetworkManagerNull instance;
 
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
+    public static event Action<NetworkConnection> OnServerReadied; //need too wait for everyone to connect
 
     public List<NetworkRoomPlayerLobby> roomPlayers { get; } = new List<NetworkRoomPlayerLobby>(); //room player data
      public List<NetworkGame> gamePlayers { get; } = new List<NetworkGame>(); //game player data
@@ -139,5 +141,18 @@ public class NetworkManagerNull : NetworkManager
         base.ServerChangeScene(newSceneName);
     }
 
+    public override void OnServerSceneChanged(string sceneName)
+    {
+        if(sceneName.StartsWith("Main")){
+            GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+            NetworkServer.Spawn(playerSpawnSystemInstance); //server owns the spawn system
+        }
+    }
 
+    public override void OnServerReady(NetworkConnection conn)
+    {
+        base.OnServerReady(conn);
+
+        OnServerReadied?.Invoke(conn);
+    }
 }

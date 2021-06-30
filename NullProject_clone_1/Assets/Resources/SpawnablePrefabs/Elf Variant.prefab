@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6534950594980262836, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
       propertyPath: sceneId
-      value: 3015578633
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6534950594980262836, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7922893400839120662, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
       propertyPath: m_RootOrder
@@ -17,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7922893400839120662, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7922893400839120662, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7922893400839120663, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}
       propertyPath: m_Name
-      value: Elf
+      value: Elf Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2db7f5ac60a6aa4799943c0d40abdae, type: 3}

@@ -376,11 +376,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59633254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 523.55646, y: 235.91754, z: -675.26416}
+  m_LocalPosition: {x: 530.29706, y: 243.32611, z: -1092.1664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1633877745}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &59633256
 MonoBehaviour:
@@ -432,14 +432,15 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7855443704985315081, guid: 03b6b18c6905e6d4d8723eb6ef313b94, type: 3}
+  playerPrefab: {fileID: 3332475895637393310, guid: e97051dfc36d0d3499c41da3b9edda71, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
-  minPlayers: 2
+  minPlayers: 1
   menuScene: Assets/Scenes/UI/Main Menu.unity
   roomPlayerPrefab: {fileID: 1267006446720208849, guid: 9a15ca9b1b097ce4e810cd6a4f874988, type: 3}
   gamePlayerPrefab: {fileID: 1929835691013492288, guid: 112ce0e95a854f348ad20a096873e176, type: 3}
+  playerSpawnSystem: {fileID: 6681283360421930027, guid: ba8b0f0d6b15ba643946275191ec220d, type: 3}
 --- !u!1 &247760178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,9 +2856,8 @@ Transform:
   m_Children:
   - {fileID: 693712346}
   - {fileID: 1890761806}
-  - {fileID: 59633255}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750708330
 GameObject:

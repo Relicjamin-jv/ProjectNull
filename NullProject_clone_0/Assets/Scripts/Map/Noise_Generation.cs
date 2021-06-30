@@ -7,7 +7,7 @@ public class Noise_Generation : MonoBehaviour
     public static float[,] noiseMap;
     //
     // Generates the Noise Map          Width       Height      Scale       Waves               Offeset
-    public static float[,] Generate (int width, int height, float scale, Wave[] waves, Vector2 offset)
+    public static float[,] Generate (int width, int height, float scale, Wave[] waves, Vector2 offset, float seed)
     {
         noiseMap = new float[width, height];
         
@@ -25,7 +25,7 @@ public class Noise_Generation : MonoBehaviour
                 foreach(Wave wave in waves)
                 {   
                     // Sample the perlin noise with the wave Frequency and Amplitude
-                    noiseMap[x, y] += wave.amplitude * Mathf.PerlinNoise(samplePosX * wave.frequency + wave.seed, samplePosY * wave.frequency + wave.seed);
+                    noiseMap[x, y] += wave.amplitude * Mathf.PerlinNoise(samplePosX * wave.frequency + seed, samplePosY * wave.frequency + seed);
                     normalization += wave.amplitude;
                 }
                 
@@ -43,7 +43,6 @@ public class Noise_Generation : MonoBehaviour
 [System.Serializable]
 public class Wave
 {
-    public float seed;
-    public float frequency;
-    public float amplitude;
+    public float frequency; //.01
+    public float amplitude; //.5
 }

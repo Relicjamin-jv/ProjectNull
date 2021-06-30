@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Map : MonoBehaviour
+public class Map : NetworkBehaviour
 {   
-
+    [Client]
     void Start()
     {
         GenerateMap();
+        this.gameObject.SetActive(true);
     }
-
-
-
 
     // Array to store all of the Biome Presets
     public BiomePreset[] biomes;
@@ -19,19 +18,26 @@ public class Map : MonoBehaviour
 
     // Array to store Map Dimensions
     [Header("Dimensions")]
-    public static int width = 200;
-    public static int height = 200;
+    public const int width = 200;
+    public const int height = 200;
+
+    [SyncVar]
     public float scale = 1.0f;
+
+    [SyncVar]
     public Vector2 offset;
 
     [Header("Height Map")]
+    [SyncVar]
+    public float seed = 69;
+
     public Wave[] heightWaves;
     public float[,] heightMap;
 
     void GenerateMap ()
     {
         // height map
-        heightMap = Noise_Generation.Generate(width, height, scale, heightWaves, offset);
+        heightMap = Noise_Generation.Generate(width, height, scale, heightWaves, offset, seed);
 
         for(int x = 0; x < width; ++x)
         {
