@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     public Image icon;
-    itemScriptable item;
+    public itemScriptable item;
     public Button removeButton;
 
     public void AddItem(itemScriptable newItem){
@@ -23,5 +23,10 @@ public class ItemSlot : MonoBehaviour
 
     public void onRemove(){
         Inventory.instance.Remove(item);
+    }
+
+    public void onEquip(){
+        EquipedGear.instance.setGear(item);
+        
     }
 }
