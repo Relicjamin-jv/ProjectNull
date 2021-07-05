@@ -24,9 +24,4 @@ public class ItemSlot : MonoBehaviour
     public void onRemove(){
         Inventory.instance.Remove(item);
     }
-
-    public void onEquip(){
-        EquipedGear.instance.setGear(item);
-        
-    }
 }

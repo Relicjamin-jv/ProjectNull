@@ -21,9 +21,4 @@ public class EquipedGear : MonoBehaviour
 
     #endregion
 
-    public void setGear(itemScriptable item)
-    {
-        gearArray[0] = item;
-    }
-
 }
