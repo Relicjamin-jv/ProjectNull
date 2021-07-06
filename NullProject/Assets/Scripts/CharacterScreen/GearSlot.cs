@@ -73,12 +73,58 @@ public class GearSlot : MonoBehaviour, IDropHandler
                 EquipedGear.instance.gearArray[5] = item;
                 Inventory.instance.Remove(item);
             }
-             else if (this.bracer && item.bracers)
+            else if (this.bracer && item.bracers)
             {
                 icon.sprite = eventData.pointerDrag.GetComponentInParent<ItemSlot>().icon.sprite;
                 EquipedGear.instance.gearArray[6] = item;
                 Inventory.instance.Remove(item);
             }
         }
+    }
+
+    public void removeItem(itemScriptable item)
+    {
+        if (this.head && item.head)
+        {
+            EquipedGear.instance.gearArray[0] = null;
+        }
+        else if (this.chest && item.chest)
+        {
+            EquipedGear.instance.gearArray[1] = null;
+        }
+        else if (this.foot && item.foot)
+        {
+            EquipedGear.instance.gearArray[2] = null;
+        }
+        else if (this.weapon && item.twoHanded)
+        {
+            CanEquip.setTwoHanded(false);
+            EquipedGear.instance.gearArray[2] = null;
+        }
+        else if (this.weapon && item.oneHanded)
+        {
+            EquipedGear.instance.gearArray[3] = null;
+        }
+        else if (this.offHandWeapon && item.oneHanded && CanEquip.twoHanded == false)
+        {
+            EquipedGear.instance.gearArray[4] = null;
+        }
+        else if (this.offHandWeapon && item.offHand) //sheild
+        {
+            EquipedGear.instance.gearArray[4] = null;
+        }
+        else if (this.ranged && item.ranged)
+        {
+            EquipedGear.instance.gearArray[5] = null;
+        }
+        else if (this.bracer && item.bracers)
+        {
+            EquipedGear.instance.gearArray[6] = null;
+        }
+    }
+
+    public void clearSlot(){
+        item = null;
+        icon.sprite = null;
     }
 }

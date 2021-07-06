@@ -23,10 +23,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
 
     public void OnEndDrag(PointerEventData eventData){
-        Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         rectTransform.anchoredPosition = orgin;
+        Debug.Log("OnEndDrag");
     }
 
     public void OnPointerDown(PointerEventData eventData){
