@@ -17,6 +17,9 @@ public class GearSlot : MonoBehaviour, IDropHandler
     public bool ranged;
     public bool bracer;
 
+    public delegate void updateStats();
+    public static event updateStats updateUI;
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -79,6 +82,7 @@ public class GearSlot : MonoBehaviour, IDropHandler
                 EquipedGear.instance.gearArray[6] = item;
                 Inventory.instance.Remove(item);
             }
+            updateUI();
         }
     }
 
@@ -121,6 +125,7 @@ public class GearSlot : MonoBehaviour, IDropHandler
         {
             EquipedGear.instance.gearArray[6] = null;
         }
+        updateUI();
     }
 
     public void clearSlot(){
