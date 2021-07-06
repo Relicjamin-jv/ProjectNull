@@ -17,13 +17,6 @@ public class GearSlot : MonoBehaviour, IDropHandler
     public bool ranged;
     public bool bracer;
 
-    private EquipedGear gear;
-
-    private void Awake()
-    {
-        gear = EquipedGear.instance;
-    }
-
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -51,14 +44,15 @@ public class GearSlot : MonoBehaviour, IDropHandler
             {
                 CanEquip.setTwoHanded(true);
                 icon.sprite = eventData.pointerDrag.GetComponentInParent<ItemSlot>().icon.sprite;
-                gear.gearArray[3] = item;
+                EquipedGear.instance.gearArray[2] = item;
+                Debug.Log("QUESUS!!!!");
                 Inventory.instance.Remove(item);
             }
             else if (this.weapon && item.oneHanded)
             {
                 CanEquip.setTwoHanded(false);
                 icon.sprite = eventData.pointerDrag.GetComponentInParent<ItemSlot>().icon.sprite;
-                gear.gearArray[3] = item;
+                EquipedGear.instance.gearArray[3] = item;
                 Inventory.instance.Remove(item);
             }
             else if (this.offHandWeapon && item.oneHanded && CanEquip.twoHanded == false)

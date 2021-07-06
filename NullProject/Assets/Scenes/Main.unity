@@ -357,6 +357,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 79661005}
+  item: {fileID: 0}
+  head: 0
+  chest: 1
+  foot: 0
+  weapon: 0
+  offHandWeapon: 0
+  ranged: 0
+  bracer: 0
 --- !u!1 &121494591
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +381,7 @@ GameObject:
   - component: {fileID: 121494596}
   m_Layer: 5
   m_Name: Image (3)
-  m_TagString: Untagged
+  m_TagString: MainWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,6 +499,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 121494594}
+  item: {fileID: 0}
+  head: 0
+  chest: 0
+  foot: 0
+  weapon: 1
+  offHandWeapon: 0
+  ranged: 0
+  bracer: 0
 --- !u!1 &156129050
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +788,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 310651181}
+  item: {fileID: 0}
+  head: 0
+  chest: 0
+  foot: 0
+  weapon: 0
+  offHandWeapon: 0
+  ranged: 1
+  bracer: 0
 --- !u!1001 &316405479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1004,6 +1031,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 317880054}
+  item: {fileID: 0}
+  head: 1
+  chest: 0
+  foot: 0
+  weapon: 0
+  offHandWeapon: 0
+  ranged: 0
+  bracer: 0
 --- !u!1001 &407212328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1126,6 +1162,7 @@ GameObject:
   - component: {fileID: 593715320}
   - component: {fileID: 593715322}
   - component: {fileID: 593715321}
+  - component: {fileID: 593715323}
   m_Layer: 5
   m_Name: Gear(Panel)
   m_TagString: Untagged
@@ -1193,6 +1230,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593715319}
   m_CullTransparentMesh: 1
+--- !u!114 &593715323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593715319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4996188b96219c641a35c4b3fa902397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &594223818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1889,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 797209647}
+  item: {fileID: 0}
+  head: 0
+  chest: 0
+  foot: 0
+  weapon: 0
+  offHandWeapon: 0
+  ranged: 0
+  bracer: 1
 --- !u!1 &892837694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2341,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 1116831883}
+  item: {fileID: 0}
+  head: 0
+  chest: 0
+  foot: 1
+  weapon: 0
+  offHandWeapon: 0
+  ranged: 0
+  bracer: 0
 --- !u!224 &1135165212 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 25177369800468789, guid: 87cdfc54f32dffe4d8a303f1dd1eca69, type: 3}
@@ -2500,6 +2575,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e42495c3f796a14e94b5d3b3c5ad938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 1164804707}
+  item: {fileID: 0}
+  head: 0
+  chest: 0
+  foot: 0
+  weapon: 0
+  offHandWeapon: 1
+  ranged: 0
+  bracer: 0
 --- !u!1 &1259711825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1412189241}
+  - component: {fileID: 1412189242}
   m_Layer: 5
   m_Name: GearBtn
   m_TagString: Untagged
@@ -2716,6 +2801,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1412189242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412189240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3818f1aa00e017c41ac51a86f9bc136d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainWeapon: {fileID: 0}
 --- !u!1 &1412465182
 GameObject:
   m_ObjectHideFlags: 0
