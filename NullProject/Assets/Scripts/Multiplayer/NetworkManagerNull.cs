@@ -16,6 +16,7 @@ public class NetworkManagerNull : NetworkManager
     [Header("Game")]
     [SerializeField] private NetworkGame gamePlayerPrefab;
     [SerializeField] private GameObject playerSpawnSystem;
+    [SerializeField] private GameObject enemySpawnSystem;
 
     public static NetworkManagerNull instance;
 
@@ -24,7 +25,7 @@ public class NetworkManagerNull : NetworkManager
     public static event Action<NetworkConnection> OnServerReadied; //need too wait for everyone to connect
 
     public List<NetworkRoomPlayerLobby> roomPlayers { get; } = new List<NetworkRoomPlayerLobby>(); //room player data
-     public List<NetworkGame> gamePlayers { get; } = new List<NetworkGame>(); //game player data
+    public List<NetworkGame> gamePlayers { get; } = new List<NetworkGame>(); //game player data
 
 
     public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
@@ -146,6 +147,8 @@ public class NetworkManagerNull : NetworkManager
         if(sceneName.StartsWith("Main")){
             GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
             NetworkServer.Spawn(playerSpawnSystemInstance); //server owns the spawn system
+            GameObject enemySpawnSystemInstance = Instantiate(enemySpawnSystem);
+            NetworkServer.Spawn(enemySpawnSystemInstance);
         }
     }
 

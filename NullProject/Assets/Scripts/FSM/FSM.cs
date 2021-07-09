@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class FSM : MonoBehaviour
+public class FSM : NetworkBehaviour
 {
     //Player Transformation
     protected Transform playerTransform;
@@ -17,16 +18,25 @@ public class FSM : MonoBehaviour
     protected virtual void FSMUpdate(){}
     protected virtual void FSMFixedUpdate(){}
 
+
     private void Start() {
-        Initialize();
+        if(isServer){
+            Initialize();
+        }
     }
 
+    
     private void Update() {
-        FSMUpdate();
+        if(isServer){
+            FSMUpdate();
+        }
     }
 
+    
     private void FixedUpdate() {
-        FSMFixedUpdate();
+        if(isServer){
+            FSMFixedUpdate();
+        }
     }
 
  }

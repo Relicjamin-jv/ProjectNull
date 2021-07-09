@@ -36,7 +36,6 @@ public class CharacterMovement : NetworkBehaviour
     {
         if (hasAuthority)
         {
-            Debug.Log("Has Auth");
             if (Input.GetMouseButton(0))
             {
                 SetTargetPosition();

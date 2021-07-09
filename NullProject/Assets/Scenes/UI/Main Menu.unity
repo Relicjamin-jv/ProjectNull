@@ -441,6 +441,7 @@ MonoBehaviour:
   roomPlayerPrefab: {fileID: 1267006446720208849, guid: 9a15ca9b1b097ce4e810cd6a4f874988, type: 3}
   gamePlayerPrefab: {fileID: 1929835691013492288, guid: 112ce0e95a854f348ad20a096873e176, type: 3}
   playerSpawnSystem: {fileID: 6681283360421930027, guid: ba8b0f0d6b15ba643946275191ec220d, type: 3}
+  enemySpawnSystem: {fileID: 5706009756007519100, guid: 632d9d77a80feca4e898494b66dbfd3b, type: 3}
 --- !u!1 &247760178
 GameObject:
   m_ObjectHideFlags: 0
