@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tundra
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 983326979509574663, guid: 068c6d0b08bd2504697a5f99cc3f19f5, type: 3}
+  - {fileID: -3671571088593259011, guid: af8662221cf54f244b39296834d908a1, type: 3}
   minHeight: 0.5
