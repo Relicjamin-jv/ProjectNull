@@ -47,6 +47,11 @@ MonoBehaviour:
   EnviromentObj:
   - {fileID: 11400000, guid: 21b23919a8b173f4d89341e49d8bd430, type: 2}
   - {fileID: 11400000, guid: fa3298829f332ff4987e2f7899c2f74d, type: 2}
+  - {fileID: 11400000, guid: 851b1298c7a829048b9f97df8fdea412, type: 2}
+  - {fileID: 11400000, guid: 7719170f1bfe36e43bd2d86b6a26859a, type: 2}
+  - {fileID: 11400000, guid: b997d459e561dfb4c9911e7ab2a4e463, type: 2}
+  - {fileID: 11400000, guid: 325ee18fe46ad124e957e63a0add0a75, type: 2}
+  - {fileID: 11400000, guid: 2b5b1a62a25dd614abb9d7079753050e, type: 2}
 --- !u!114 &1037949660056602128
 MonoBehaviour:
   m_ObjectHideFlags: 0
