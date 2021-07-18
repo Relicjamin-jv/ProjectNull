@@ -17,6 +17,7 @@ public class NetworkManagerNull : NetworkManager
     [SerializeField] private NetworkGame gamePlayerPrefab;
     [SerializeField] private GameObject playerSpawnSystem;
     [SerializeField] private GameObject enemySpawnSystem;
+    [SerializeField] private GameObject envSpawnSystem;
 
     public static NetworkManagerNull instance;
 
@@ -149,6 +150,8 @@ public class NetworkManagerNull : NetworkManager
             NetworkServer.Spawn(playerSpawnSystemInstance); //server owns the spawn system
             GameObject enemySpawnSystemInstance = Instantiate(enemySpawnSystem);
             NetworkServer.Spawn(enemySpawnSystemInstance);
+            GameObject enviromentSpawnSystemInstance = Instantiate(envSpawnSystem);
+            NetworkServer.Spawn(enviromentSpawnSystemInstance);
         }
     }
 
