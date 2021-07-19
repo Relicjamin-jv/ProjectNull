@@ -9,6 +9,11 @@ public class NetworkGame : NetworkBehaviour
 {
     public string DisplayName = "Loading...";
 
+    [SerializeField] private GameObject interactionUI;
+
+    [SyncVar]
+    public bool isReadyForNextTurn = false;
+
     private NetworkManagerNull room;
 
     private  NetworkManagerNull Room{ //persist between scenes automatically cast its so we only need to call room to get the network manager
@@ -18,6 +23,11 @@ public class NetworkGame : NetworkBehaviour
             }
             return room = NetworkManager.singleton as NetworkManagerNull;
         }
+    }
+
+    public override void OnStartAuthority()
+    {
+        interactionUI.SetActive(true);
     }
 
     public override void OnStartClient()
@@ -33,6 +43,24 @@ public class NetworkGame : NetworkBehaviour
 
     public void SetDisplayName(string name){
         this.DisplayName =  name;
+    }
+
+    public void readyforNextTurn(){
+        if(hasAuthority){
+            CmdReadyForNextTurn();
+        }
+    }
+
+    [Command]
+    public void CmdReadyForNextTurn(){
+        isReadyForNextTurn = !isReadyForNextTurn; //toggle 
+
+        Room.NextTurnCheck(); //checks if it can go to the next turn or not
+    }
+
+    [Server]
+    public void setIsReadyForNextTurn(){
+        isReadyForNextTurn = false;
     }
    
 }

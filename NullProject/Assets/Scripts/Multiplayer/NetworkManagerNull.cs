@@ -117,6 +117,24 @@ public class NetworkManagerNull : NetworkManager
 
         return true;
     }
+    
+    public bool IsReadyForNextTurn(){
+        foreach(var player in gamePlayers){ //all players need to be ready in order to start the game
+            if(!player.isReadyForNextTurn){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void NextTurnCheck(){
+        if(IsReadyForNextTurn()){
+            GUIControlTurns.instance.turn++;
+            foreach(var player in gamePlayers){
+                player.setIsReadyForNextTurn();
+            }
+        }
+    }
 
     public void StartGame(){
         if(SceneManager.GetActiveScene().name == "Main Menu"){
@@ -125,6 +143,7 @@ public class NetworkManagerNull : NetworkManager
             ServerChangeScene("Main");
         }
     }
+
 
     public override void ServerChangeScene(string newSceneName)
     {
@@ -136,7 +155,7 @@ public class NetworkManagerNull : NetworkManager
 
                 NetworkServer.Destroy(conn.identity.gameObject);
 
-                NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject);
+                NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, false);
             }
         }
 
