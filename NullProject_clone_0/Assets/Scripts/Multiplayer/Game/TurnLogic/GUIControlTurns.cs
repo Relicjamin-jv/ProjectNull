@@ -7,7 +7,7 @@ using Mirror;
 
 public class GUIControlTurns : NetworkBehaviour
 {
-    TextMeshProUGUI text;
+    Text text;
 
     #region singleton
     public static GUIControlTurns instance;
@@ -24,7 +24,7 @@ public class GUIControlTurns : NetworkBehaviour
     public float turn = 0;
 
     private void Start() {
-        text = this.GetComponent<TextMeshProUGUI>();
+        text = this.GetComponent<Text>();
     }
 
     private void Update() {

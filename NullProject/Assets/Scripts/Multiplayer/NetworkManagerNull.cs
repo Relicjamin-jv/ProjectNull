@@ -124,6 +124,10 @@ public class NetworkManagerNull : NetworkManager
                 return false;
             }
         }
+        foreach(var player in gamePlayers){
+            player.stamina = 100f;
+            player.resetSlider();
+        }
         return true;
     }
 
@@ -155,7 +159,7 @@ public class NetworkManagerNull : NetworkManager
 
                 NetworkServer.Destroy(conn.identity.gameObject);
 
-                NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, false);
+                NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, true);
             }
         }
 
@@ -165,8 +169,8 @@ public class NetworkManagerNull : NetworkManager
     public override void OnServerSceneChanged(string sceneName)
     {
         if(sceneName.StartsWith("Main")){
-            GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
-            NetworkServer.Spawn(playerSpawnSystemInstance); //server owns the spawn system
+            // GameObject playerSpawnSystemInstance = Instantiate(playerSpawnSystem);
+            // NetworkServer.Spawn(playerSpawnSystemInstance); //server owns the spawn system
             GameObject enemySpawnSystemInstance = Instantiate(enemySpawnSystem);
             NetworkServer.Spawn(enemySpawnSystemInstance);
             GameObject enviromentSpawnSystemInstance = Instantiate(envSpawnSystem);

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Volcano
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 21300000, guid: 76923e78ee3a83b48aaecf976fa2b9ee, type: 3}
+  - {fileID: -3633740651061811815, guid: 0cb333cc31b1c4c4983418709251f7c8, type: 3}
   minHeight: 0.75

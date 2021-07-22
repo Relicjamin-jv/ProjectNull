@@ -8,6 +8,7 @@ public class CharacterMovement : NetworkBehaviour
     public float speed = 4f;
     private Vector3 _targetPostion;
     private bool isMoving;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,3 +49,4 @@ public class CharacterMovement : NetworkBehaviour
         }
     }
 }
+
