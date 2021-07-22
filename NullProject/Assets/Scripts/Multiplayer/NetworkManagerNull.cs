@@ -125,15 +125,13 @@ public class NetworkManagerNull : NetworkManager
             }
         }
         foreach(var player in gamePlayers){
-            player.stamina = 100f;
-            player.resetSlider();
+            player.reset();
         }
         return true;
     }
 
     public void NextTurnCheck(){
         if(IsReadyForNextTurn()){
-            GUIControlTurns.instance.turn++;
             foreach(var player in gamePlayers){
                 player.setIsReadyForNextTurn();
             }

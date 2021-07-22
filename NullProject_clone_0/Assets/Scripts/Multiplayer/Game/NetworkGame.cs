@@ -4,10 +4,12 @@ using UnityEngine;
 using Mirror;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class NetworkGame : NetworkBehaviour
 {
     public string DisplayName = "Loading...";
+    public static bool isDragging = false;
 
     [SyncVar]
     public int health = 100;
@@ -43,12 +45,13 @@ public class NetworkGame : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Room.gamePlayers.Add(this); //when the client or the host runs this it will add itself to the list in the Network Manager
-        sendToServerLocal();
+        sendToServerLocalAdd();
     }
 
     public override void OnStopClient() //when the client disconnects it will remove itself from the list on the server
     {
         Room.gamePlayers.Remove(this);
+        sendToServerLocalRemove();
     }
 
     public void SetDisplayName(string name)
@@ -73,7 +76,12 @@ public class NetworkGame : NetworkBehaviour
     }
 
     [Command]
-    void sendToServerLocal(){
+    void sendToServerLocalRemove(){
+        NPCController.playerGameObj.Add(this.gameObject);
+    }
+
+    [Command]
+    void sendToServerLocalAdd(){
         NPCController.playerGameObj.Add(this.gameObject);
     }
 
@@ -96,8 +104,9 @@ public class NetworkGame : NetworkBehaviour
         this.transform.position = new Vector3(Random.Range(1, 199), Random.Range(1, 199), 0);
     }
 
-    public void resetSlider(){
-        stamSlider.value = 100;
+    public void reset(){
+        stamina = 100f;
+        this.stamSlider.value = 100;
     }
 
      void SetTargetPosition()
@@ -111,9 +120,7 @@ public class NetworkGame : NetworkBehaviour
     void move()
     {
         transform.position = Vector3.MoveTowards(this.transform.position, _targetPostion, speed * Time.deltaTime);
-        stamina -= .2f;
-        Debug.Log(stamSlider.value);
-        stamSlider.value = (stamina/100f) * 100;
+        decreaseStamina();
         if (transform.position == _targetPostion)
         {
             isMoving = false;
@@ -123,11 +130,18 @@ public class NetworkGame : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        stamSlider.value = (stamina/100f) * 100;
         if (hasAuthority)
         {
             if (Input.GetMouseButton(0))
             {
-                SetTargetPosition();
+                Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
+
+                if(hit && !EventSystem.current.IsPointerOverGameObject() && !isDragging){
+                    Debug.Log(isDragging);
+                    SetTargetPosition();
+                }
             }
 
             if (isMoving && stamina > 0)
@@ -137,5 +151,10 @@ public class NetworkGame : NetworkBehaviour
                 isMoving= false;
             }
         }
+    }
+
+    [Command]
+    private void decreaseStamina(){
+        stamina -= .2f;
     }
 }

@@ -19,7 +19,6 @@ public class GUIControlTurns : NetworkBehaviour
         instance = this;
     }
     #endregion
-
     [SyncVar]
     public float turn = 0;
 

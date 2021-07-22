@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6801623716096067400}
   - component: {fileID: 7816745196574894783}
   - component: {fileID: 1929835691013492288}
-  - component: {fileID: 1213821641637337020}
   - component: {fileID: -8424095309899591026}
   - component: {fileID: 9054167374888394475}
   - component: {fileID: 3910398190943562514}
   - component: {fileID: 1535964551151320856}
+  - component: {fileID: 5118635692463858750}
   m_Layer: 0
   m_Name: GamePlayer
   m_TagString: Player
@@ -76,29 +76,6 @@ MonoBehaviour:
   stamSlider: {fileID: 3317811803295639565}
   isReadyForNextTurn: 0
   speed: 4
---- !u!114 &1213821641637337020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696112933764027101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
-  compressRotation: 0
-  interpolateScale: 1
-  interpolateRotation: 1
-  interpolatePosition: 1
-  syncScale: 1
 --- !u!95 &-8424095309899591026
 Animator:
   serializedVersion: 3
@@ -202,6 +179,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5118635692463858750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696112933764027101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  interpolateRotation: 1
+  interpolatePosition: 1
+  syncScale: 1
 --- !u!114 &6960161455743970810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 6440536333942360125}
   - component: {fileID: 484922579743348209}
   - component: {fileID: 1122931197939475030}
+  - component: {fileID: 1613724994062301006}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -352,6 +353,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &1613724994062301006
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400791074363447373}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &5964082137993851899
 MonoBehaviour:
   m_ObjectHideFlags: 0

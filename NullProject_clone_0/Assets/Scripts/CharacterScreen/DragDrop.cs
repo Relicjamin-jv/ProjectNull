@@ -19,12 +19,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData){
         Debug.Log("OnBeganDrag");
         canvasGroup.blocksRaycasts = false;
+        NetworkGame.isDragging = true;
         canvasGroup.alpha = .7f;
     }
 
     public void OnEndDrag(PointerEventData eventData){
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
+        NetworkGame.isDragging = false;
         rectTransform.anchoredPosition = orgin;
         Debug.Log("OnEndDrag");
     }
