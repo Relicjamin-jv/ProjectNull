@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 25177370494201046}
+  item: {fileID: 0}
   removeButton: {fileID: 25177370584819890}
 --- !u!1 &25177370494201048
 GameObject:
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  objectGUI: {fileID: 0}
 --- !u!225 &179794965
 CanvasGroup:
   m_ObjectHideFlags: 0
