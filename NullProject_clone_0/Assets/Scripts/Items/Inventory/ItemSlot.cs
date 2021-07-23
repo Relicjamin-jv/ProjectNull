@@ -20,6 +20,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         item = null;
         icon.sprite = null;
         icon.enabled = false;
+        
     }
 
     public void onRemove(){

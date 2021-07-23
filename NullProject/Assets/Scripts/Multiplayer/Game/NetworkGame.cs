@@ -19,8 +19,13 @@ public class NetworkGame : NetworkBehaviour
     [SerializeField] private GameObject interactionUI;
     [SerializeField] private Slider stamSlider;
 
+    [SerializeField] private Text turnText;
+    [SerializeField] private Button nextTurnButton;
+
     [SyncVar]
     public bool isReadyForNextTurn = false;
+    [SyncVar]
+    public int turn = 0;
 
     private NetworkManagerNull room;
 
@@ -34,6 +39,10 @@ public class NetworkGame : NetworkBehaviour
             }
             return room = NetworkManager.singleton as NetworkManagerNull;
         }
+    }
+
+    private void Update() {
+        turnText.text = "Turns: " + turn;
     }
 
     public override void OnStartAuthority()
@@ -71,7 +80,6 @@ public class NetworkGame : NetworkBehaviour
     public void CmdReadyForNextTurn()
     {
         isReadyForNextTurn = !isReadyForNextTurn; //toggle 
-
         Room.NextTurnCheck(); //checks if it can go to the next turn or not
     }
 
@@ -106,7 +114,7 @@ public class NetworkGame : NetworkBehaviour
 
     public void reset(){
         stamina = 100f;
-        this.stamSlider.value = 100;
+        turn++;
     }
 
      void SetTargetPosition()
@@ -130,6 +138,7 @@ public class NetworkGame : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        nextTurnButton.image.color = isReadyForNextTurn ? new Color32(2, 106 ,2, 255) : new Color32(255, 255 ,255, 255);
         stamSlider.value = (stamina/100f) * 100;
         if (hasAuthority)
         {
@@ -157,4 +166,5 @@ public class NetworkGame : NetworkBehaviour
     private void decreaseStamina(){
         stamina -= .2f;
     }
+
 }

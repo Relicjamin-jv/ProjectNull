@@ -9,6 +9,7 @@ public class GearSlot : MonoBehaviour, IDropHandler
     public Image icon;
     public itemScriptable item;
     private GameObject mainWeapon;
+    private CanvasGroup canvasGroup;
     public bool head;
     public bool chest;
     public bool foot;
@@ -20,11 +21,18 @@ public class GearSlot : MonoBehaviour, IDropHandler
     public delegate void updateStats();
     public static event updateStats updateUI;
 
+    private void Start()
+    {
+        canvasGroup = this.GetComponent<CanvasGroup>();
+    }
+
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
             item = eventData.pointerDrag.GetComponentInParent<ItemSlot>().item;
+            icon.color = new Color32(255, 255, 255, 255);
             if (this.head && item.head)
             {
                 icon.sprite = eventData.pointerDrag.GetComponentInParent<ItemSlot>().icon.sprite;
@@ -82,6 +90,7 @@ public class GearSlot : MonoBehaviour, IDropHandler
                 EquipedGear.instance.gearArray[6] = item;
                 Inventory.instance.Remove(item);
             }
+            canvasGroup.alpha = 1f;
             updateUI();
         }
     }
@@ -128,8 +137,10 @@ public class GearSlot : MonoBehaviour, IDropHandler
         updateUI();
     }
 
-    public void clearSlot(){
+    public void clearSlot()
+    {
         item = null;
         icon.sprite = null;
+        icon.color = new Color32(255,255,255,0);
     }
 }

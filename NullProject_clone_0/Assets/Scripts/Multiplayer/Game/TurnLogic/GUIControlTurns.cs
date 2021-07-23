@@ -20,13 +20,14 @@ public class GUIControlTurns : NetworkBehaviour
     }
     #endregion
     [SyncVar]
-    public float turn = 0;
+    public int turn = 0;
 
     private void Start() {
         text = this.GetComponent<Text>();
     }
 
     private void Update() {
+        Debug.Log(turn);
         text.text = "Turns: " + turn;
     }
 }

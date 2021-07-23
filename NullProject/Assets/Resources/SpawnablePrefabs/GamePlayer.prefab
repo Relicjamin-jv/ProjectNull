@@ -74,7 +74,10 @@ MonoBehaviour:
   stamina: 100
   interactionUI: {fileID: 6334114973947630853}
   stamSlider: {fileID: 3317811803295639565}
+  turnText: {fileID: 5277410617879949774}
+  nextTurnButton: {fileID: 1122931197939475030}
   isReadyForNextTurn: 0
+  turn: 0
   speed: 4
 --- !u!95 &-8424095309899591026
 Animator:
@@ -394,7 +397,6 @@ GameObject:
   - component: {fileID: 4837789682770185570}
   - component: {fileID: 5277410617879949774}
   - component: {fileID: 1914619027986745299}
-  - component: {fileID: 6817152958556131171}
   m_Layer: 5
   m_Name: TurnUI
   m_TagString: Untagged
@@ -480,21 +482,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &6817152958556131171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5006667194809909132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df2000b498a1e54cb7dc57efc5916a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  turn: 0
 --- !u!1 &5214312073581684051
 GameObject:
   m_ObjectHideFlags: 0
