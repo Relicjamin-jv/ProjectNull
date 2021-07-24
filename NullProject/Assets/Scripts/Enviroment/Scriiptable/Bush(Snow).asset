@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82239e87e842504ab6b8b89462b7c79, type: 3}
+  m_Name: Bush(Snow)
+  m_EditorClassIdentifier: 
+  minHeightRange: 0.5
+  maxHeightRange: 0.74
+  countToGenerate: 0
+  chanceToGen: 0.002
+  sprite: {fileID: 8149850014390566773, guid: ac5cef8f19ebc5743af7c8a495c2910e, type: 3}
