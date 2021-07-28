@@ -12,7 +12,6 @@ public class MousePositiion : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
         float clampedX = Mathf.Clamp(localPoint.x, -1000, 305);
         float clampedY = Mathf.Clamp(localPoint.y, -1000, 62);
-        Debug.Log(localPoint.x + " " + localPoint.y);
         transform.localPosition = new Vector2(clampedX + 10, clampedY + 8);
     }
 
