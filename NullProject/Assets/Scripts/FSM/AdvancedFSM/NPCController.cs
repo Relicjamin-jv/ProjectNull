@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class NPCController : AdvancedFSM
 {   
-
+    public int health = 100;
     public GameObject waypointObj;
     public static List<GameObject> playerGameObj = new List<GameObject>(); 
 
     protected override void Initialize()
     {
+        Combat.enemies.Add(this);
         ConstructFSM();
     }
 
@@ -20,8 +21,8 @@ public class NPCController : AdvancedFSM
 
     protected override void FSMFixedUpdate()
     {
-        CurrentState.Reason(playerGameObj, this.transform); //sends in the postion of the player and the npc
-        CurrentState.Act(playerGameObj, this.transform); //sends in the postion of the player and the npc
+        CurrentState.Reason(playerGameObj, this.transform, this.gameObject); //sends in the postion of the player and the npc
+        CurrentState.Act(playerGameObj, this.transform, this.gameObject); //sends in the postion of the player and the npc
     }
 
     public void SetTransition(Transition t){
@@ -40,15 +41,19 @@ public class NPCController : AdvancedFSM
         //npc will have a patrol state
         PatrolState patrol = new PatrolState(waypoints); 
         patrol.AddTransition(Transition.SawPlayer, FSMStateID.Chasing); //if saw player then transition into chasing the player
-
+        AddFSMState(patrol);
         // npc will have a chase state
         ChaseState chase = new ChaseState();
         chase.AddTransition(Transition.LostPlayer, FSMStateID.Patrolling);
-
-    
+        chase.AddTransition(Transition.ReachPlayer, FSMStateID.Attacking);
         AddFSMState(chase);
-        AddFSMState(patrol);
-
-        SetTransition(Transition.LostPlayer);
+        //npc will have an attack state
+        AttackState attack = new AttackState();
+        attack.AddTransition(Transition.LostPlayer, FSMStateID.Patrolling);
+        attack.AddTransition(Transition.NoHealth, FSMStateID.Dead);
+        AddFSMState(attack);
+        DeadState dead = new DeadState();
+        AddFSMState(dead);
+        
     }
 }

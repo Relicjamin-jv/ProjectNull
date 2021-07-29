@@ -6,7 +6,6 @@ public class ChaseState : FSMState
 {
     private bool changeState = false;
     private int outOfRange = 0;
-    private int closest = 0;
 
     public ChaseState()
     {
@@ -16,8 +15,9 @@ public class ChaseState : FSMState
     }
 
     //reason for changing states
-    public override void Reason(List<GameObject> player, Transform npc)
+    public override void Reason(List<GameObject> player, Transform npc, GameObject enemy)
     {
+        int closest = 0;
         for (int i = 0; i < player.Count; i++)
         {
             if (Vector2.Distance(npc.position, player[i].transform.position) >= 5f)
@@ -34,13 +34,28 @@ public class ChaseState : FSMState
                 npc.GetComponent<NPCController>().SetTransition(Transition.LostPlayer);
             }
         }
+
+        for(int i = 0; i < player.Count - 1; i++){
+            if(Vector2.Distance(npc.position, player[i].transform.position) < Vector2.Distance(npc.position, player[i+1].transform.position)){
+                closest = i;
+            }else{
+                closest = i + 1;
+            }
+        }
+
+        if(Vector2.Distance(npc.position, player[closest].transform.position) < 2f){
+            Debug.Log("Switching to the attack state");
+            npc.GetComponent<NPCController>().SetTransition(Transition.ReachPlayer);
+        }
+
         outOfRange = 0; //reset once the loop has completed
         changeState = false;
     }
 
     //all actions that the ai will take in this state
-    public override void Act(List<GameObject> player, Transform npc)
+    public override void Act(List<GameObject> player, Transform npc, GameObject enemy)
     {
+        int closest = 0;
         //all the chasing state does is chase the player only
         for(int i = 0; i < player.Count - 1; i++){
             if(Vector2.Distance(npc.position, player[i].transform.position) < Vector2.Distance(npc.position, player[i+1].transform.position)){

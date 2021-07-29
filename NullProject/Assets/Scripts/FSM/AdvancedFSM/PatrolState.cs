@@ -12,7 +12,7 @@ public class PatrolState : FSMState
         speed = 5f;
     }
 
-    public override void Reason(List<GameObject> player, Transform npc)
+    public override void Reason(List<GameObject> player, Transform npc, GameObject enemy)
     {
         //check the distance from the player to the npc
         //when the distance is close enough then switch to chasing through the transitions
@@ -24,7 +24,7 @@ public class PatrolState : FSMState
         } 
     }
 
-    public override void Act(List<GameObject> player, Transform npc)
+    public override void Act(List<GameObject> player, Transform npc, GameObject enemy)
     {
         //find another transformation point if there is not reason
 

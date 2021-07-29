@@ -6,10 +6,17 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
+public enum battleState{NotInBattle, InBattle} 
+
 public class NetworkGame : NetworkBehaviour
 {
     public string DisplayName = "Loading...";
     public static bool isDragging = false;
+
+    [SyncVar]
+    public battleState state = battleState.NotInBattle;
+
 
     [SyncVar]
     public int health = 100;
@@ -43,6 +50,11 @@ public class NetworkGame : NetworkBehaviour
 
     private void Update() {
         turnText.text = "Turns: " + turn;
+        switch(state){
+            case battleState.InBattle:
+                Debug.Log("In battle");
+                return;
+        }
     }
 
     public override void OnStartAuthority()
@@ -110,6 +122,7 @@ public class NetworkGame : NetworkBehaviour
     //random location on map
     private void Start() {
         this.transform.position = new Vector3(Random.Range(1, 199), Random.Range(1, 199), 0);
+        state = battleState.NotInBattle;
     }
 
     public void reset(){

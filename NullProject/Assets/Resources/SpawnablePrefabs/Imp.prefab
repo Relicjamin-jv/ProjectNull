@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4272561648452395520}
   m_Layer: 0
   m_Name: Imp
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba40bee689a0c349b19c18c29474b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  health: 100
   waypointObj: {fileID: 8127372032594300259, guid: 8334de262fc76b34a952271d42b676d8, type: 3}
 --- !u!114 &-801472164730355769
 MonoBehaviour:

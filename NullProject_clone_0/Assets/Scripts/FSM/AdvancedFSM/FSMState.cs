@@ -76,6 +76,7 @@ public abstract class FSMState
     /// </summary>
     public FSMStateID GetOutputState(Transition trans)
     {
+        Debug.Log(trans + "");
         // Check for NullTransition
         if (trans == Transition.None)
         {
@@ -97,14 +98,14 @@ public abstract class FSMState
     /// Decides if the state should transition to another on its list
     /// NPC is a reference to the npc tha is controlled by this class
     /// </summary>
-    public abstract void Reason(List<GameObject> player, Transform npc);
+    public abstract void Reason(List<GameObject> player, Transform npc, GameObject enemy);
 
     /// <summary>
     /// This method controls the behavior of the NPC in the game World.
     /// Every action, movement or communication the NPC does should be placed here
     /// NPC is a reference to the npc tha is controlled by this class
     /// </summary>
-    public abstract void Act(List<GameObject> player, Transform npc);
+    public abstract void Act(List<GameObject> player, Transform npc, GameObject enemy);
 
     /// <summary>
     /// Find the next semi-random patrol point
