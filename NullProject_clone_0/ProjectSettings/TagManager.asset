@@ -8,6 +8,7 @@ TagManager:
   - Inventory
   - JoinScreen
   - MainWeapon
+  - enemy
   layers:
   - Default
   - TransparentFX

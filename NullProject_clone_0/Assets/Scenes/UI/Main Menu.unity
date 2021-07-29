@@ -443,6 +443,7 @@ MonoBehaviour:
   playerSpawnSystem: {fileID: 6681283360421930027, guid: ba8b0f0d6b15ba643946275191ec220d, type: 3}
   enemySpawnSystem: {fileID: 5706009756007519100, guid: 632d9d77a80feca4e898494b66dbfd3b, type: 3}
   envSpawnSystem: {fileID: 1037949660056602131, guid: 0a9356089e0617d48b1f97e1d3b4cee4, type: 3}
+  combatSystem: {fileID: 8894020293093555609, guid: 6dccc18556f72274084ef10090a454d6, type: 3}
 --- !u!1 &247760178
 GameObject:
   m_ObjectHideFlags: 0
