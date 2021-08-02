@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class NPCController : AdvancedFSM
 {   
+    [SyncVar]
     public int health = 100;
+
     public GameObject waypointObj;
     public static List<GameObject> playerGameObj = new List<GameObject>(); 
 

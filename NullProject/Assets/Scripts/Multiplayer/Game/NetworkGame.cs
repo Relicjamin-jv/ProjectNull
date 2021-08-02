@@ -17,6 +17,8 @@ public class NetworkGame : NetworkBehaviour
     [SyncVar]
     public battleState state = battleState.NotInBattle;
 
+    [SerializeField] private GameObject combatUI;
+
 
     [SyncVar]
     public int health = 100;
@@ -28,6 +30,8 @@ public class NetworkGame : NetworkBehaviour
 
     [SerializeField] private Text turnText;
     [SerializeField] private Button nextTurnButton;
+
+    [SerializeField] private Button attackUIBtn;
 
     [SyncVar]
     public bool isReadyForNextTurn = false;
@@ -53,6 +57,10 @@ public class NetworkGame : NetworkBehaviour
         switch(state){
             case battleState.InBattle:
                 Debug.Log("In battle");
+                combatUI.SetActive(true);
+                return;
+            case battleState.NotInBattle:
+                combatUI.SetActive(false);
                 return;
         }
     }
@@ -60,6 +68,7 @@ public class NetworkGame : NetworkBehaviour
     public override void OnStartAuthority()
     {
         interactionUI.SetActive(true);
+        combatUI.SetActive(false);
     }
 
     public override void OnStartClient()

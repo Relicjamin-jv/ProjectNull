@@ -21,6 +21,7 @@ public class DeadState : FSMState
     //all actions that the ai will take in this state
     public override void Act(List<GameObject> player, Transform npc, GameObject enemy)
     {
+        Combat.enemies.Remove(enemy.GetComponent<NPCController>());
         Destroy.Destroy(enemy);
     }
 }
